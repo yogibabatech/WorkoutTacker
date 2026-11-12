@@ -202,8 +202,3 @@ textarea { resize: vertical; }
 .tl { position: relative; }
 .tl > i { position: absolute; left: -18px; top: 18px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
 .tl .chips { margin: 8px 0; }
-
-/* react additions */
-button.day { border: 0; font: inherit; cursor: pointer; width: 100%; }
-.btn:disabled { opacity: .6; }
-a.btn { text-decoration: none; }

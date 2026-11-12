@@ -1,27 +1,11 @@
-# Workout Tracker (React + Node + MySQL)
+# Workout Tracker (PHP + MySQL, mobile-first)
 
-Mobile-first workout tracker. React (Vite) frontend, Express API, MySQL storage.
+## Run
+1. Start **MySQL** in XAMPP (defaults: user `root`, empty password; edit `config.php` if yours differ).
+2. From this folder:
+   `C:\xampp\php\php.exe -S 0.0.0.0:8080`
+   then open http://localhost:8080 (on your phone: http://<PC-IP>:8080 on the same Wi-Fi).
+   Or copy the folder into `C:\xampp\htdocs\` and use Apache.
+3. The database `workout_tracker` and its tables are created automatically on first load (`sql/schema.sql`).
 
-## Run locally
-1. Start MySQL (XAMPP defaults: user `root`, empty password).
-2. `copy .env.example .env` (edit if your DB differs).
-3. `npm run install:all`
-4. `npm run dev` then open http://localhost:5173 (API on :3001).
-
-The database and tables are created automatically on first start.
-
-## Deploy (live server)
-Needs Node 18+ and MySQL. A plain PHP/shared host will not work, use a VPS, Render, Railway, or cPanel "Setup Node.js App".
-
-1. Create a MySQL database and user (grant all on that database).
-2. On the server create `.env` (see `.env.example`):
-   - `NODE_ENV=production`, `PORT` (use the one your host gives)
-   - `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASS`
-   - `JWT_SECRET` = long random string
-3. `npm install` then `npm run build` then `npm start`
-4. Serve over HTTPS. Behind Nginx/Apache, proxy everything to the Node port and forward `X-Forwarded-Proto`.
-
-## Render deployment
-Render has no MySQL, so use an external one (Aiven free MySQL, TiDB Cloud Serverless, or Railway MySQL).
-- Web Service from this repo: Build `npm install && npm run build`, Start `npm start` (or use the Blueprint in `render.yaml`).
-- Env vars: `NODE_ENV=production`, `JWT_SECRET`, `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASS`, and `DB_SSL=true` for cloud MySQL.
+Timezone is set in `config.php` (`Asia/Kolkata`).
