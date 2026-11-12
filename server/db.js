@@ -14,6 +14,10 @@ export async function initDb() {
     user: process.env.DB_USER || 'root',
     password: process.env.DB_PASS ?? '',
   };
+  // Cloud MySQL (Aiven, TiDB, PlanetScale...) usually requires TLS: set DB_SSL=true
+  if (process.env.DB_SSL === 'true') {
+    base.ssl = { minVersion: 'TLSv1.2', rejectUnauthorized: process.env.DB_SSL_STRICT === 'true' };
+  }
   const name = process.env.DB_NAME || 'workout_tracker';
 
   // Try to create the database (may be disallowed on shared hosting, that's fine)

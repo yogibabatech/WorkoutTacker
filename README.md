@@ -20,3 +20,8 @@ Needs Node 18+ and MySQL. A plain PHP/shared host will not work, use a VPS, Rend
    - `JWT_SECRET` = long random string
 3. `npm install` then `npm run build` then `npm start`
 4. Serve over HTTPS. Behind Nginx/Apache, proxy everything to the Node port and forward `X-Forwarded-Proto`.
+
+## Render deployment
+Render has no MySQL, so use an external one (Aiven free MySQL, TiDB Cloud Serverless, or Railway MySQL).
+- Web Service from this repo: Build `npm install && npm run build`, Start `npm start` (or use the Blueprint in `render.yaml`).
+- Env vars: `NODE_ENV=production`, `JWT_SECRET`, `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASS`, and `DB_SSL=true` for cloud MySQL.
